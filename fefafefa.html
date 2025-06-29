@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> fefafefafefafefafefafefafefa </title> <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffe4e1; /* Rosa bebê */
+            font-family: 'Quicksand', sans-serif; /* Fonte mais suave */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #5a2d05; /* Cor de texto mais terrosa/aconchegante */
+            text-align: center; /* Centraliza o texto */
+            padding: 20px; /* Adiciona um pouco de padding geral */
+            box-sizing: border-box; /* Garante que padding não adicione largura extra */
+        }
+
+        #mensagemInicial, #conteudoPrincipal, #proximoPasso {
+            background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente para o conteúdo */
+            padding: 30px 40px; /* Mais padding para um visual mais 'cheio' */
+            border-radius: 25px; /* Bordas bem arredondadas */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+            max-width: 90%;
+            width: 500px; /* Largura máxima para o conteúdo principal */
+            margin-bottom: 20px; /* Espaço entre os blocos se houver mais de um */
+        }
+
+        #mensagemInicial p { /* Estilo para o texto "Olá! Por favor, digite seu nome" */
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        #mensagemInicial input[type="text"] {
+            padding: 12px 15px; /* Padding maior para o input */
+            border: 2px solid #ffb6c1; /* Borda rosa mais suave */
+            border-radius: 10px; /* Bordas arredondadas para o input */
+            font-size: 1.1em;
+            width: calc(100% - 30px); /* Ajusta largura para o padding */
+            max-width: 300px; /* Limita a largura máxima do input */
+            margin-top: 15px;
+            margin-bottom: 15px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna suave */
+        }
+
+        #mensagem {
+            margin-top: 10px;
+            font-weight: 600; /* Mais negrito */
+            color: #d80000; /* Vermelho para a mensagem de erro */
+            font-size: 0.95em;
+        }
+
+        #conteudoPrincipal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #mensagemFinal {
+            margin-top: 20px;
+            margin-bottom: 30px; /* Espaço entre o texto e os botões */
+            font-size: 1.3em; /* Um pouco maior para destaque */
+            line-height: 1.6; /* Espaçamento entre linhas */
+            color: #5a2d05; /* Consistente com a cor do body */
+            font-weight: 600;
+        }
+
+        .botao {
+            padding: 14px 30px; /* Aumentado o padding para botões maiores e mais aconchegantes */
+            border-radius: 25px; /* Bordas mais arredondadas */
+            font-size: 1.15em;
+            cursor: pointer;
+            margin: 15px; /* Mais margem entre os botões */
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease; /* Transição para o botão Sim */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais proeminente nos botões */
+            border: none; /* Remove a borda padrão do botão */
+        }
+
+        #botaoEntrar {
+            background-color: #f7a7a7; /* Rosa mais escura para o botão */
+            color: white;
+            font-weight: 600;
+        }
+
+        #botaoEntrar:hover {
+            transform: scale(1.05);
+            background-color: #ff8e8e; /* Um pouco mais escuro no hover */
+        }
+
+        #botaoSim {
+            background-color: #28a745; /* Verde mais vibrante */
+            color: white;
+            font-weight: 600;
+        }
+
+        #botaoSim:hover {
+            transform: scale(1.05); /* Pequeno efeito de zoom ao passar o mouse */
+            background-color: #218838; /* Um pouco mais escuro no hover */
+        }
+
+        #botaoNao {
+            background-color: #dc3545; /* Vermelho mais vibrante */
+            color: white;
+            font-weight: 600;
+            position: relative; /* Mantém relative para a movimentação */
+            transition: none; /* Remove transição para que a mudança de posição seja instantânea */
+        }
+
+        #proximoPasso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px; /* Adiciona um pouco de padding ao redor da imagem e texto */
+        }
+
+        #proximoPasso p {
+            font-size: 1.6em; /* Texto maior */
+            margin-bottom: 25px; /* Mais espaço */
+            color: #5a2d05; /* Cor para o texto da Triforce */
+            font-weight: 700; /* Mais negrito */
+        }
+
+        #imagemCentralizada {
+            max-width: 100%; /* Garante que a imagem se ajuste à largura da tela */
+            height: auto; /* Mantém a proporção da imagem */
+            border-radius: 15px; /* Bordas ainda mais arredondadas */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Sombra mais proeminente */
+            display: block; /* Garante que a imagem não tenha espaço extra abaixo */
+            margin-top: 15px; /* Espaço entre o texto e a imagem */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mensagemInicial">
+        <p>oi!! digita o teu nome ai:</p>
+        <input type="text" id="nomeUsuario">
+        <button id="botaoEntrar" class="botao">Entrar</button>
+        <div id="mensagem"></div>
+    </div>
+
+    <div id="conteudoPrincipal" style="display: none;">
+        <p id="mensagemFinal">Oi meu bem!!! Aceita ser meu duo pelo resto dos 2 meses (ou mais se tu quiser)? LKDGJASFKASFKAJS</p>
+        <div id="botoes">
+            <button id="botaoSim" class="botao">Sim</button>
+            <button id="botaoNao" class="botao">Não</button>
+        </div>
+    </div>
+
+    <div id="proximoPasso" style="display: none;">
+        <p>Se meu coração fosse uma Triforce, ele ressonaria perto de ti (nos dois ai na foto)</p>
+        </div>
+
+    <script>
+        const inputNome = document.getElementById("nomeUsuario");
+        const botaoEntrar = document.getElementById("botaoEntrar");
+        const mensagemDiv = document.getElementById("mensagem");
+        const mensagemInicialDiv = document.getElementById("mensagemInicial");
+        const conteudoPrincipalDiv = document.getElementById("conteudoPrincipal");
+        const mensagemFinalP = document.getElementById("mensagemFinal");
+        const botaoSim = document.getElementById("botaoSim");
+        const botaoNao = document.getElementById("botaoNao");
+        const botoesDiv = document.getElementById("botoes");
+        const proximoPassoDiv = document.getElementById("proximoPasso");
+
+        // Função para lidar com a verificação do nome
+        function verificarNome() {
+            const nomeDigitado = inputNome.value.trim().toLowerCase();
+
+            if (nomeDigitado === "fernanda") {
+                mensagemInicialDiv.style.display = "none";
+                conteudoPrincipalDiv.style.display = "flex";
+                mensagemDiv.textContent = ""; // Limpa a mensagem de erro
+                inputNome.value = ""; // Limpa o campo para a próxima vez
+                document.title = "fefafefafefafefafefa"; // Muda o título da página
+            } else if (nomeDigitado !== "") {
+                mensagemDiv.textContent = "Só tem uma pessoa que pode usar essa página e tu não é ela";
+                inputNome.value = ""; // Limpa o campo de texto
+            } else {
+                mensagemDiv.textContent = ""; // Limpa a mensagem se o campo estiver vazio novamente
+            }
+        }
+
+        // Event listener para o botão Entrar
+        botaoEntrar.addEventListener("click", verificarNome);
+
+        // Opcional: Permitir que Enter no input também dispare a verificação
+        inputNome.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                verificarNome();
+            }
+        });
+
+        botaoNao.addEventListener("mouseover", function() {
+            const larguraTela = window.innerWidth;
+            const alturaTela = window.innerHeight;
+            const larguraBotao = botaoNao.offsetWidth;
+            const alturaBotao = botaoNao.offsetHeight;
+
+            const padding = 50; 
+            const novaPosicaoX = Math.random() * (larguraTela - larguraBotao - 2 * padding) + padding;
+            const novaPosicaoY = Math.random() * (alturaTela - alturaBotao - 2 * padding) + padding;
+
+            botaoNao.style.position = "absolute";
+            // Garante que o botão esteja dentro dos limites da tela
+            botaoNao.style.left = Math.max(padding, Math.min(novaPosicaoX, larguraTela - larguraBotao - padding)) + "px";
+            botaoNao.style.top = Math.max(padding, Math.min(novaPosicaoY, alturaTela - alturaBotao - padding)) + "px";
+        });
+
+        botaoSim.addEventListener("click", function() {
+            conteudoPrincipalDiv.style.display = "none"; // Esconde o conteúdo anterior
+            proximoPassoDiv.style.display = "flex"; // Mostra o novo conteúdo
+
+            // Verifica se a imagem já foi adicionada para evitar duplicidade
+            if (!document.getElementById("imagemCentralizada")) {
+                const imagem = document.createElement("img");
+                // MUDANÇA AQUI: Aponta para o arquivo local na mesma pasta
+                imagem.src = "nos.jpg"; // CERTIFIQUE-SE QUE ESTE É O NOME DO SEU ARQUIVO DE IMAGEM
+                imagem.alt = "Link e Zelda abraçados";
+                imagem.id = "imagemCentralizada";
+                proximoPassoDiv.appendChild(imagem);
+            }
+        });
+    </script>
+</body>
+</html>
